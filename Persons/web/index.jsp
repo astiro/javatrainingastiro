@@ -17,7 +17,10 @@
         <ul>
             <li>
                 Create persons report using a servlet. <a href="./ListOfPersons">Click here:</a>
-            </li>
+            </li>    
+            <li>
+                Create persons report using a JSP. <a href="./getallpersons.jsp">Click here:</a>
+            </li>              
         </ul>
     </body>
 </html>

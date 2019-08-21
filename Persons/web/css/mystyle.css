@@ -9,7 +9,7 @@ This is a file for my styles;
 /* create a nice style for my body */
 body {
     font-family: Helvetica;
-    font-size: 3;
+    font-size: 3pt;
     background-color: lightcyan   
 }
 p{
