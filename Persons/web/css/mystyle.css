@@ -1,0 +1,41 @@
+/*
+Comments in .css files are like in C, C++ or Java
+This is a file for my styles;
+*/
+/* 
+    Created on : Aug 13, 2019, 4:28:02 PM
+    Author     : gheor
+*/
+/* create a nice style for my body */
+body {
+    font-family: Helvetica;
+    font-size: 3;
+    background-color: lightcyan   
+}
+p{
+    color: blue;
+}
+ol{
+   color: green;
+}
+ul{
+    color: palevioletred;
+}
+table{ 
+    border-collapse: collapse; 
+    border: solid thick; 
+}
+colgroup, tbody { 
+    border: solid medium; 
+}
+td { 
+    border: solid thin; 
+    height: 1.4em; 
+    width: 1.4em; 
+    text-align: center; 
+    padding: 0; 
+}
+.mytableheader {
+    background-color: lightsalmon;
+    color: red;
+}
