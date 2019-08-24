@@ -7,6 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="/WEB-INF/tlds/astiro" prefix="astiro" %>
 
 <!DOCTYPE html>
 <html>
@@ -17,12 +18,21 @@
     </head>
     <body>
         <h1>List of persons</h1>
+        
         <sql:setDataSource 
                         var="snapshot" 
                         driver="org.apache.derby.jdbc.ClientDriver"
                         url="jdbc:derby://localhost:1527/persoane;create=true;"
                         user="test"  
                         password="test"/>
+        <%-- we'll replace the standard tag from JSTL named sql:setDataSource with our new defined tag 
+        <astiro:connectdb dbconnection="snapshot" 
+                          dbdriver="org.apache.derby.jdbc.ClientDriver"
+                          dburl="jdbc:derby://localhost:1527/persoane;create=true;"
+                          dbusername="test"
+                          dbpassword="test"/>
+        --%>
+        
         <sql:query dataSource="${snapshot}" var="result">
             SELECT PERSOANE.CNP AS CNP,PERSOANE.NAME AS NAME,PERSOANE.SURNAME AS SURNAME,PERSOANE.ADDRESS AS ADDRESS, LOCALITATI.DESCRIPTION AS LOCALITATE, JUDETE.DESCRIPTION AS JUDET
             FROM PERSOANE, LOCALITATI, JUDETE
