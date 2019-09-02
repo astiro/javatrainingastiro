@@ -66,13 +66,14 @@ public class Login extends HttpServlet {
                         // set a variable in session to keep it for a user as logged
                         // set another variable to keep the role of actual user for loading the menu for an admin or for a user
                         // if user is a registered one open the main.jsp page after
-                        request.getSession().setAttribute("role", role); // this will be used to display the menu in main.jsp page
+                        request.getSession().setAttribute("actualUserRole", role); // this will be used to display the menu in main.jsp page
                         request.getSession().setAttribute("actual_user", username); // this will be used if needed in other page
-                        request.getSession().setAttribute("valid_user", true); // this will be test by all other pages to test if a user is logged and valid
+                        request.getSession().setAttribute("validUser", true); // this will be test by all other pages to test if a user is logged and valid
                         // open main.jsp
                         //request.getRequestDispatcher("./main.jsp").forward(request, response);
                         // for unitary tests we are open here an existing jsp that will be replaced with main.jsp we do not have now
-                        request.getRequestDispatcher("./getallpersons.jsp").forward(request, response);
+                        //request.getRequestDispatcher("./getallpersons.jsp").forward(request, response);
+                        request.getRequestDispatcher("./main.jsp").forward(request, response);
                     }
                     if(hasRows == false){
                         request.getSession().setAttribute("valid_user", false); // user laready inserted wrong credentials (username, password)
