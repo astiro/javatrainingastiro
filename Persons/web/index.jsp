@@ -9,18 +9,22 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>PERSONS</title>
+        <title>PERSONAS LOGIN</title>
+        <link rel="stylesheet" type="text/css" href=".\\css\\mystyle.css">
     </head>
     <body>
-        <h1>PERSONS WEB APPLICATION</h1>
-        
-        <ul>
-            <li>
-                Create persons report using a servlet. <a href="./ListOfPersons">Click here:</a>
-            </li>    
-            <li>
-                Create persons report using a JSP. <a href="./getallpersons.jsp">Click here:</a>
-            </li>              
-        </ul>
+        <form action="./Login" method="POST">
+            <table class="tablecenterdwithborder">
+                <tr>
+                    <td>User name:</td><td><input name="personas_login_username" type="text"></td>
+                </tr>
+                <tr>
+                    <td>Password:</td><td><input name="personas_login_password" type="password"></td>
+                </tr>
+                <tr>
+                    <td></td><td><input name="personas_login_login" type="submit" value="Login"/></td></td>
+                </tr>
+            </table>
+        </form>    
     </body>
 </html>
