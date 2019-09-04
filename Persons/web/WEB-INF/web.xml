@@ -12,6 +12,10 @@
         <servlet-name>AdminUsers</servlet-name>
         <servlet-class>servlets.AdminUsers</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GetAllPersons</servlet-name>
+        <servlet-class>servlets.GetAllPersons</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ListOfPersons</servlet-name>
         <url-pattern>/ListOfPersons</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>AdminUsers</servlet-name>
         <url-pattern>/AdminUsers</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetAllPersons</servlet-name>
+        <url-pattern>/GetAllPersons</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

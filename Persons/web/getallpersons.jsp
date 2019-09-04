@@ -17,41 +17,46 @@
         <link rel="stylesheet" type="text/css" href="./css/mystyle.css">
     </head>
     <body>
-        <h1>List of persons</h1>
-        
-        <sql:setDataSource 
-                        var="snapshot" 
-                        driver="org.apache.derby.jdbc.ClientDriver"
-                        url="jdbc:derby://localhost:1527/persoane;create=true;"
-                        user="test"  
-                        password="test"/>
-        <%-- we'll replace the standard tag from JSTL named sql:setDataSource with our new defined tag 
-        <astiro:connectdb dbconnection="snapshot" 
-                          dbdriver="org.apache.derby.jdbc.ClientDriver"
-                          dburl="jdbc:derby://localhost:1527/persoane;create=true;"
-                          dbusername="test"
-                          dbpassword="test"/>
-        --%>
-        
-        <sql:query dataSource="${snapshot}" var="result">
-            SELECT PERSOANE.CNP AS CNP,PERSOANE.NAME AS NAME,PERSOANE.SURNAME AS SURNAME,PERSOANE.ADDRESS AS ADDRESS, LOCALITATI.DESCRIPTION AS LOCALITATE, JUDETE.DESCRIPTION AS JUDET
-            FROM PERSOANE, LOCALITATI, JUDETE
-            WHERE PERSOANE.ID_LOCALITATE=LOCALITATI.ID_LOCALITATE AND LOCALITATI.ID_JUDET=JUDETE.ID_JUDET
-        </sql:query>
-        <table class="mytableheader"> 
-            <tr>
-                <th>CNP</th><th>NAME</th><th>SURNAME</th><th>ADDRESS</th><th>CITY</th><th>STATE</th>
-            </tr>
-            <c:forEach var="row" varStatus="loop" items="${result.rows}">
-            <tr>
-                <td><c:out value="${row.cnp}"/></td>
-                <td><c:out value="${row.name}"/></td>
-                <td><c:out value="${row.surname}"/></td>
-                <td><c:out value="${row.address}"/></td>
-                <td><c:out value="${row.localitate}"/></td>
-                <td><c:out value="${row.judet}"/></td>
-            </tr>
-            </c:forEach>
-        </table>
+        <form action="${pageContext.request.contextPath}/GetAllPersons" mehtod="POST">
+            <sql:setDataSource 
+                            var="snapshot" 
+                            driver="org.apache.derby.jdbc.ClientDriver"
+                            url="jdbc:derby://localhost:1527/persoane;create=true;"
+                            user="test"  
+                            password="test"/>
+            <%-- we'll replace the standard tag from JSTL named sql:setDataSource with our new defined tag 
+            <astiro:connectdb dbconnection="snapshot" 
+                              dbdriver="org.apache.derby.jdbc.ClientDriver"
+                              dburl="jdbc:derby://localhost:1527/persoane;create=true;"
+                              dbusername="test"
+                              dbpassword="test"/>
+            --%>
+
+            <sql:query dataSource="${snapshot}" var="result">
+                SELECT PERSOANE.CNP AS CNP,PERSOANE.NAME AS NAME,PERSOANE.SURNAME AS SURNAME,PERSOANE.ADDRESS AS ADDRESS, LOCALITATI.DESCRIPTION AS LOCALITATE, JUDETE.DESCRIPTION AS JUDET
+                FROM PERSOANE, LOCALITATI, JUDETE
+                WHERE PERSOANE.ID_LOCALITATE=LOCALITATI.ID_LOCALITATE AND LOCALITATI.ID_JUDET=JUDETE.ID_JUDET
+            </sql:query>
+            <table width="100%" class="tablecenterdwithborder"> 
+                <tr class="thc">
+                    <th>CNP</th><th>NAME</th><th>SURNAME</th><th>ADDRESS</th><th>CITY</th><th>STATE</th>
+                </tr>
+                <c:forEach var="row" varStatus="loop" items="${result.rows}">
+                <tr>
+                    <td><c:out value="${row.cnp}"/></td>
+                    <td><c:out value="${row.name}"/></td>
+                    <td><c:out value="${row.surname}"/></td>
+                    <td><c:out value="${row.address}"/></td>
+                    <td><c:out value="${row.localitate}"/></td>
+                    <td><c:out value="${row.judet}"/></td>
+                </tr>
+                </c:forEach>
+                <tr>
+                    <td></td><td></td>
+                    <td class="tdc"><input type="submit" class="ebooksstorebutton" name="report_allpersons_back" value="Back"></td>
+                    <td></td><td></td>
+                </tr>
+            </table>
+        </form>
     </body>
 </html>

@@ -32,9 +32,9 @@
         </c:choose>        
         <c:choose>
             <c:when test="${actualUserRole == 'user'|| actualUserRole == 'admin'}">
-                <li><a href="#">Orders</a>
+                <li><a href="#">Reports</a>
                     <ul>
-                        <li><a href="./personas.jsp">Personas</a></li>
+                        <li><a href="./getallpersons.jsp">Personas</a></li>
                     </ul>
                 </li>    
             </c:when>

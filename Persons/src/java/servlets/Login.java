@@ -76,14 +76,14 @@ public class Login extends HttpServlet {
                         request.getRequestDispatcher("./main.jsp").forward(request, response);
                     }
                     if(hasRows == false){
-                        request.getSession().setAttribute("valid_user", false); // user laready inserted wrong credentials (username, password)
+                        request.getSession().setAttribute("validUser", false); // user laready inserted wrong credentials (username, password)
                         // else stay in login.jsp page
                         request.getRequestDispatcher("./index.jsp").forward(request, response);
                     }
                 }
                 else
                 {
-                    request.getSession().setAttribute("valid_user", false); // user laready inserted wrong credentials (username, password)
+                    request.getSession().setAttribute("validUser", false); // user laready inserted wrong credentials (username, password)
                     // else stay in login.jsp page
                     request.getRequestDispatcher("./index.jsp").forward(request, response);
                 }
