@@ -35,6 +35,13 @@
                     WHERE USERS.ROLE=USERS_ROLES.ROLE
                     </sql:query>
                     <table border="1" width="100%">
+                        <tr>
+                            <th width="4%" class="tdc"><c:out value="S"/>
+                            <th width="24%" class="tdc"><c:out value="ID"/></td>
+                            <th width="24%" class="tdc"><c:out value="USERNAME"/></td>
+                            <th width="24%" class="tdc"><c:out value="PASSWORD"/></td>
+                            <th width="24%" class="tdc"><c:out value="ROLE"/></td>
+                        </tr>    
                         <c:forEach var="row" varStatus="loop" items="${result.rows}">
                         <tr>
                             <td width="4%" class="tdc"><input type="checkbox" name="admin_users_checkbox" value="${row.id}"></td>
@@ -63,13 +70,13 @@
                             <td>
                                 <table>
                                     <tr>
-                                        <td> ID: </td><td><input type="text" name="admin_users_id"</input></td>
+                                        <td> ID: </td><td><input type="text" name="admin_users_id"></input></td>
                                     </tr>
                                     <tr>
-                                        <td> USERNAME: </td><td><input type="text" name="admin_users_username"</input></td>
+                                        <td> USERNAME: </td><td><input type="text" name="admin_users_username"></input></td>
                                     </tr>
                                     <tr>
-                                        <td> USERNAME: </td><td><input type="password" name="admin_users_password"</input></td>
+                                        <td> PASSWORD: </td><td><input type="password" name="admin_users_password"></input></td>
                                     </tr>
                                     <tr>
                                         <td> ROLE: </td>

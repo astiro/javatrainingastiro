@@ -57,7 +57,7 @@ public class AdminUsers extends HttpServlet {
                 connection = DriverManager.getConnection(url, user, password);
                 String insertQuerry = "INSERT INTO USERS VALUES (?, ?, ?, ?)"; // parameters for id, username, password and role
                 statement = connection.prepareStatement(insertQuerry);
-                statement.setInt(1, Short.parseShort(id)); // converts id from String to Smallint not int
+                statement.setInt(1, Integer.parseInt(id)); // converts id from String to Smallint not int
                 statement.setString(2, un);
                 statement.setString(3, pas);
                 statement.setString(4, role);
@@ -116,13 +116,12 @@ public class AdminUsers extends HttpServlet {
             try{
                 Class driverClass = Class.forName(driver);
                 connection = DriverManager.getConnection(url, user, password);
-                String updateQuerry = "UPDATE USERS SET id=?, username=?, password=?, role=? WHERE id=?"; // parameters for id, username, password and role
+                String updateQuerry = "UPDATE USERS SET username=?, password=?, role=? WHERE id=?"; // parameters for id, username, password and role
                 statement = connection.prepareStatement(updateQuerry);
-                statement.setInt(1, Short.parseShort(id)); // converts id from String to Smallint not int
-                statement.setString(2, un);
-                statement.setString(3, pas);
-                statement.setString(4, role);
-                statement.setInt(5, Short.parseShort(id)); // converts id from String to Smallint not int
+                statement.setString(1, un);
+                statement.setString(2, pas);
+                statement.setString(3, role);
+                statement.setInt(4, Integer.parseInt(id));
                 boolean execute = statement.execute();
             }
              catch (ClassNotFoundException | SQLException ex)
